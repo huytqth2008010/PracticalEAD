@@ -15,22 +15,20 @@
     <a href="AddCandidate.html">Go to add</a>
     <table class="table">
         <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Addr</th>
-            <th scope="col">Date of birth</th>
-            <th scope="col">Skill</th>
-            <th scope="col">Work History</th>
-
-        </tr>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Addr</th>
+                <th scope="col">Date of birth</th>
+                <th scope="col">Skill</th>
+                <th scope="col">Work History</th>
+            </tr>
         </thead>
         <tbody id="render"></tbody>
     </table>
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-
         var apiUrl = 'http://localhost:8080/api/candidates'
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = () => {
@@ -42,17 +40,16 @@
                     var content = ``;
                     data.forEach((e, index) => {
                         content += `<tr>
-                    <th scope="row">${index+1}</th>
-                    <td>${e.name!=null?e.name:"None"}</td>
-                    <td>${e.addr!=null?e.addr:"None"}</td>
-                    <td>${e.dateOfBirth!=null?e.dateOfBirth:"None"}</td>
-                    <td>${e.skill!=null?e.skill:"None"}</td>
-                    <td>${e.workHistory!=null?e.workHistory:"None"}</td>
-                </tr>`
+                                        <th scope="row">${index+1}</th>
+                                        <td>${e.name!=null?e.name:"None"}</td>
+                                        <td>${e.addr!=null?e.addr:"None"}</td>
+                                        <td>${e.dateOfBirth!=null?e.dateOfBirth:"None"}</td>
+                                        <td>${e.skill!=null?e.skill:"None"}</td>
+                                        <td>${e.workHistory!=null?e.workHistory:"None"}</td>
+                                   </tr>`
                     });
                     render.innerHTML = content
                 }
-
             }
         }
         xhr.open("GET", apiUrl, false)
@@ -60,5 +57,4 @@
     })
 </script>
 </body>
-
 </html>
